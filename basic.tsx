@@ -77,19 +77,13 @@
   </objectgroup>
  </tile>
  <tile id="24">
-  <objectgroup draworder="index">
-   <object id="1" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
+  <objectgroup draworder="index"/>
  </tile>
  <tile id="25">
-  <objectgroup draworder="index">
-   <object id="1" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
+  <objectgroup draworder="index"/>
  </tile>
  <tile id="26">
-  <objectgroup draworder="index">
-   <object id="1" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
+  <objectgroup draworder="index"/>
  </tile>
  <tile id="27">
   <objectgroup draworder="index">
@@ -112,15 +106,10 @@
   </objectgroup>
  </tile>
  <tile id="32">
-  <objectgroup draworder="index">
-   <object id="1" x="0.5" y="-0.125" width="15.125" height="16.75"/>
-   <object id="2" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
+  <objectgroup draworder="index"/>
  </tile>
  <tile id="34">
-  <objectgroup draworder="index">
-   <object id="1" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
+  <objectgroup draworder="index"/>
  </tile>
  <tile id="35">
   <objectgroup draworder="index">
@@ -143,19 +132,16 @@
   </objectgroup>
  </tile>
  <tile id="40">
-  <objectgroup draworder="index">
-   <object id="1" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
+  <objectgroup draworder="index"/>
  </tile>
  <tile id="41">
-  <objectgroup draworder="index">
-   <object id="1" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
+  <objectgroup draworder="index"/>
  </tile>
  <tile id="42">
-  <objectgroup draworder="index">
-   <object id="1" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
+  <properties>
+   <property name="unity:scale" type="float" value="0.0625"/>
+  </properties>
+  <objectgroup draworder="index"/>
  </tile>
  <tile id="47">
   <objectgroup draworder="index">
