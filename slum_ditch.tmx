@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="left-up" width="4" height="4" tilewidth="16" tileheight="16" infinite="0" nextobjectid="1">
+ <properties>
+  <property name="unity:scale" type="float" value="0.0625"/>
+ </properties>
+ <tileset firstgid="1" source="basic.tsx"/>
+ <tileset firstgid="121" source="collision.tsx"/>
+ <layer name="ground" width="4" height="4">
+  <data encoding="csv">
+15,15,15,15,
+15,15,15,15,
+15,15,15,15,
+15,15,15,15
+</data>
+ </layer>
+ <layer name="wall" width="4" height="4">
+  <data encoding="csv">
+62,0,0,0,
+0,0,0,57,
+0,28,0,0,
+0,0,0,0
+</data>
+ </layer>
+ <layer name="collision" width="4" height="4">
+  <data encoding="csv">
+121,0,0,0,
+0,0,0,0,
+0,121,0,0,
+0,0,0,0
+</data>
+ </layer>
+</map>

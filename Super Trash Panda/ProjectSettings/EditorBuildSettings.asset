@@ -4,4 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Town.unity
+    guid: a5a6680c92aa1824db606325c60c39e9
+  - enabled: 1
+    path: Assets/Scenes/slum_path.unity
+    guid: bf98794843371394e98e83d4d10b2add
+  - enabled: 1
+    path: Assets/Scenes/Wayne.unity
+    guid: e31dae9a99baff64c90df35e45a93dd6
+  - enabled: 1
+    path: Assets/Scenes/slum_ditch.unity
+    guid: e7bf6928ce2c04244ad501715ec83ff4
