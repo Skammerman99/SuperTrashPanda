@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+# Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Super Trash Panda", "Super Trash Panda.csproj", "{22236086-15AC-ADC9-B2D2-E7276FB70522}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Super Trash Panda.Editor", "Super Trash Panda.Editor.csproj", "{68DB1776-38C1-99ED-4C22-59F28F5FA46B}"
