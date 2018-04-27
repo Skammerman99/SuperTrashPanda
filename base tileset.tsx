@@ -66,9 +66,7 @@
   </objectgroup>
  </tile>
  <tile id="493">
-  <objectgroup draworder="index">
-   <object id="1" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
+  <objectgroup draworder="index"/>
  </tile>
  <tile id="518" terrain="0,0,0,"/>
  <tile id="519" terrain="0,0,,0"/>
@@ -83,13 +81,9 @@
  <tile id="635" terrain="0,0,,"/>
  <tile id="636" terrain="0,,,"/>
  <tile id="1223">
-  <objectgroup draworder="index">
-   <object id="1" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
+  <objectgroup draworder="index"/>
  </tile>
  <tile id="1621">
-  <objectgroup draworder="index">
-   <object id="2" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
+  <objectgroup draworder="index"/>
  </tile>
 </tileset>
