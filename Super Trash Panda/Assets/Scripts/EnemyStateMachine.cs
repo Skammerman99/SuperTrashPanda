@@ -41,6 +41,11 @@ public class EnemyStateMachine : MonoBehaviour {
                 ChooseAction();
                 currState = TurnState.WAITING;
                 break;
+            case (TurnState.WAITING):
+                ResetProgressBar();
+                currState = TurnState.PROCESSING;
+                break;
+
             case (TurnState.ACTION):
 
                 break;
@@ -62,6 +67,11 @@ public class EnemyStateMachine : MonoBehaviour {
         }
     }
 
+    private void ResetProgressBar()
+    {
+        currCool = 0;
+    }
+
     void ChooseAction()
     {
         HandleTurn attackerino = new HandleTurn();
@@ -69,6 +79,7 @@ public class EnemyStateMachine : MonoBehaviour {
         attackerino.Attacker = this.gameObject;
         attackerino.Target = BSM.Party[0];
         BSM.CollectActions(attackerino);
+        attackerino.Target.GetComponent<PlayerStateMachine>().player.CurHP -= 10;
         //attackerino.Target = BSM.Party[Random.Range(0, BSM.Party.Count)];
         //this is for random attacks eventually ^
     }

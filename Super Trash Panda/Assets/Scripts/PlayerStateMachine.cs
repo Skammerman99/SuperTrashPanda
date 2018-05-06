@@ -22,6 +22,8 @@ public class PlayerStateMachine : MonoBehaviour {
     public float currCool = 0f;
     public float maxCool = 5f;
     public Image progressBar;
+    public BattleStateMachine BSM;
+    public bool keypress;
 
 
 
@@ -29,10 +31,13 @@ public class PlayerStateMachine : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         currState = TurnState.PROCESSING;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        BSM = GameObject.Find("BattleManager").GetComponent<BattleStateMachine>();
+
+    }
+
+    // Update is called once per frame
+    void Update () {
+        keypress = Input.GetKey(KeyCode.Z);
         switch (currState)
         {
             case (TurnState.PROCESSING):
@@ -45,9 +50,15 @@ public class PlayerStateMachine : MonoBehaviour {
 
                 break;
             case (TurnState.SELECTING):
-
+                if (Input.GetKey(KeyCode.Z)){
+                    currState = TurnState.ACTION;
+                }
                 break;
             case (TurnState.ACTION):
+                PlayerAttack();
+                ResetProgressBar();
+                currState = TurnState.PROCESSING;
+                
 
                 break;
             case (TurnState.DEAD):
@@ -64,7 +75,18 @@ public class PlayerStateMachine : MonoBehaviour {
         progressBar.transform.localScale = new Vector2(Mathf.Clamp(coolRatio, 0, 1), progressBar.transform.localScale.y);
         if(currCool >= maxCool)
         {
-            currState = TurnState.ADDTOLIST;
+            //currState = TurnState.ADDTOLIST;
+            currState = TurnState.SELECTING;
         }
+    }
+
+    void PlayerAttack()
+    {
+        BSM.Enemies[0].GetComponent<EnemyStateMachine>().enemy.CurHP -= 10;
+    }
+
+    private void ResetProgressBar()
+    {
+        currCool = 0;
     }
 }
