@@ -763,7 +763,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 653487253}
-  - component: {fileID: 653487254}
   - component: {fileID: 653487255}
   m_Layer: 0
   m_Name: Enemy1
@@ -786,17 +785,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &653487254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 653487252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 547f727ef6cb3a34c83471ebc329b313, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &653487255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -820,6 +808,7 @@ MonoBehaviour:
     Defense: 5
     Resistance: 5
     EnemyType: 0
+    Attacks: []
   currState: 0
   currCool: 0
   maxCool: 5
@@ -1087,7 +1076,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 996851558}
-  - component: {fileID: 996851559}
   - component: {fileID: 996851560}
   m_Layer: 0
   m_Name: Party1
@@ -1110,17 +1098,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &996851559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 996851557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ecf144ed83a2b04eafa5bcb934271df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &996851560
 MonoBehaviour:
   m_ObjectHideFlags: 0

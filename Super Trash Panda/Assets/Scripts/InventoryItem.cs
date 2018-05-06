@@ -8,9 +8,10 @@ public interface IInventoryItem{
   void onPickup();
 }
 
-public class InventoryEventArgs : EventArgs{
+//public class InventoryEventArgs : EventArgs{
+public class InventoryEventArgs { 
   public InventoryEventArgs(IInventoryItem item){
-    Item = item
+        Item = item;
   }
 
   public IInventoryItem Item;

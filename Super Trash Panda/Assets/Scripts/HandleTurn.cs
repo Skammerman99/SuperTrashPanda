@@ -10,4 +10,6 @@ public class HandleTurn{
     public GameObject Attacker;
     public GameObject Target;
 
+    public AttackBase chosenAttack;
+
 }

@@ -26,13 +26,6 @@ public class EnemyBase{
 
     public Type EnemyType;
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public List<AttackBase> Attacks = new List<AttackBase>();
+   
 }
