@@ -2,19 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class SaveUI : MonoBehaviour {
     public GameObject[] slotArray;
     private int index = 1;
-
+    private string filePathBase; // ..../Save/save   (need to add number.data after it)
     public SaveSystem saveSystem;
 
     private void Start()
     {
+        //create the path
+        filePathBase = Path.Combine(Application.dataPath, "Save");
+        filePathBase = Path.Combine(filePathBase, "save");
         //show the information of savedate on the slots
-        for(int x=1; x<=slotArray.Length; ++x)
+        for (int x=1; x<=slotArray.Length; ++x)
         {
-            SaveData data = saveSystem.LoadFromFile(Application.dataPath+"/Save/save"+ x.ToString() +".data");
+            SaveData data = saveSystem.LoadFromFile(filePathBase + x.ToString() +".data");
             ShowSaveInfo(slotArray[x-1], data);
         }
         Select(1);
@@ -42,8 +46,8 @@ public class SaveUI : MonoBehaviour {
         //when space is pressed
         else if (Input.GetButtonDown("Jump"))
         {
-            saveSystem.SaveToFile(Application.dataPath + "/Save/save" + index.ToString() + ".data");
-            SaveData data = saveSystem.LoadFromFile(Application.dataPath + "/Save/save" + index.ToString() + ".data");
+            saveSystem.SaveToFile(filePathBase + index.ToString() + ".data");
+            SaveData data = saveSystem.LoadFromFile(filePathBase + index.ToString() + ".data");
             ShowSaveInfo(slotArray[index - 1], data);
         }
     }
