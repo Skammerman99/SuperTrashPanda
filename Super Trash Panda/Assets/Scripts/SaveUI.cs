@@ -5,10 +5,17 @@ using UnityEngine.UI;
 using System.IO;
 
 public class SaveUI : MonoBehaviour {
+    public enum SaveUIMod
+    {
+        Save,
+        Load
+    }
+
     public GameObject[] slotArray;
     private int index = 1;
     private string filePathBase; // ..../Save/save   (need to add number.data after it)
     public SaveSystem saveSystem;
+    public SaveUIMod mod;
 
     private void Start()
     {
@@ -28,7 +35,7 @@ public class SaveUI : MonoBehaviour {
     {
         //change the selected slot
         //when up is pressed
-        if(Input.GetButtonDown("Vertical") && Input.GetAxis("Vertical")>0)
+        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             if(index > 1)
             {
@@ -36,7 +43,7 @@ public class SaveUI : MonoBehaviour {
             }
         }
         //when down is pressed
-        else if (Input.GetButtonDown("Vertical") && Input.GetAxis("Vertical") < 0)
+        else if (Input.GetKeyDown(KeyCode.S)||Input.GetKeyDown(KeyCode.DownArrow))
         {
             if (index < slotArray.Length)
             {
@@ -46,13 +53,32 @@ public class SaveUI : MonoBehaviour {
         //when space is pressed
         else if (Input.GetButtonDown("Jump"))
         {
-            saveSystem.SaveToFile(filePathBase + index.ToString() + ".data");
-            SaveData data = saveSystem.LoadFromFile(filePathBase + index.ToString() + ".data");
-            ShowSaveInfo(slotArray[index - 1], data);
+            //when this UI Menu is a Save UI
+            if(mod == SaveUIMod.Save)
+            {
+                SaveData data = new SaveData();
+                data.position = GameObject.Find("Player").transform.position;
+                saveSystem.SaveToFile(filePathBase + index.ToString() + ".data", data);
+                ShowSaveInfo(slotArray[index - 1], data);
+            }
+            else// when it is load UI
+            {
+                if (File.Exists(filePathBase + index.ToString() + ".data"))
+                {
+                    SaveData data = saveSystem.LoadFromFile(filePathBase + index.ToString() + ".data");
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("Town");
+                    GameObject.Find("Player").transform.position = data.position;
+                }
+                else
+                {
+                    Debug.Log("File doesn't exist");
+                }
+
+            }
         }
     }
 
-    private void Select(int index)
+    public void Select(int index)
     //select another slot and change index
     {
         this.index = index;
@@ -79,7 +105,7 @@ public class SaveUI : MonoBehaviour {
         }
         else
         {
-            slot.transform.Find("text").gameObject.GetComponent<Text>().text = data.text;
+            slot.transform.Find("text").gameObject.GetComponent<Text>().text = data.position.ToString();
         }
     }
 }

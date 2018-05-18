@@ -7,20 +7,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class SaveSystem : MonoBehaviour {
-    public string a;
 
-
-    public void SaveToFile(string path)
+    public void SaveToFile(string path, SaveData data)
     //format the information of a saveData to binary and store it in PC as a file
     {
        
         BinaryFormatter bf = new BinaryFormatter();
         FileStream saveDataFile = File.Create(path);
         //store the info need to save to a SaveData
-        SaveData data = new SaveData();
-        //
-        data.text = a;
-        //
         bf.Serialize(saveDataFile, data);
         saveDataFile.Close();
     }
@@ -44,19 +38,10 @@ public class SaveSystem : MonoBehaviour {
         }
     }
 
-    public void LoadGame(SaveData data)
-    //load the game by the info of a SaveData object
-    {
-        //
-        
-        //
-    }
-
 }
 
 [Serializable]
 public class SaveData{
-    //
-    public string text;
-    //
+    
+    public Vector3 position;
 }

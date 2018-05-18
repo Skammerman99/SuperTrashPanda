@@ -4,19 +4,47 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class TitleManager : MonoBehaviour {
+    enum TitleSection
+    {
+        main,
+        load
+    }
+
     private int index;
+    private TitleSection state;
     public GameObject[] buttons;
+    public GameObject LoadUI;
 
 	// Use this for initialization
 	void Start () {
         //set initializ position depends on if there are save file exists
+        state = TitleSection.main;
         Select(1);
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
+        switch (state)
+        {
+            case TitleSection.main:
+                CheckMain();
+                break;
+            case TitleSection.load:
+                if (Input.GetKeyDown(KeyCode.X))
+                {
+                    state = TitleSection.main;
+                    LoadUI.SetActive(false);
+                }
+                break;
+        }
+        
+        
+    }
+
+    public void CheckMain()
+    {
         //when up is pressed
-        if (Input.GetButtonDown("Vertical") && Input.GetAxis("Vertical") > 0)
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             if (index > 1)
             {
@@ -24,7 +52,7 @@ public class TitleManager : MonoBehaviour {
             }
         }
         //when down is pressed
-        else if (Input.GetButtonDown("Vertical") && Input.GetAxis("Vertical") < 0)
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             if (index < buttons.Length)
             {
@@ -84,7 +112,9 @@ public class TitleManager : MonoBehaviour {
     private void LoadGameUI()
     //Change to the Load Game UI
     {
-
+        LoadUI.SetActive(true);
+        LoadUI.GetComponent<SaveUI>().Select(1);
+        state = TitleSection.load;
     }
 
     private void ShowOptionUI()
